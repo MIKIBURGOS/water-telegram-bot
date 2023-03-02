@@ -9,6 +9,12 @@ TOKEN = ''
 bot = telebot.TeleBot(TOKEN)
 
 
+csvfile = 'mikitracking.csv'
+HEADERS = ['Day', 'Water', 'Shower', 'Walk', 'test']
+first_day = get_day()
+temporary_list = [first_day, 0, 0, 0, 0]
+
+
 def get_day():
     today = str(datetime.date.today()).split('-', 3)
     day = today[2]
@@ -16,12 +22,6 @@ def get_day():
     year = today[0]
     date = f'{day}-{month}-{year}'
     return date
-
-
-csvfile = 'mikitracking.csv'
-HEADERS = ['Day', 'Water', 'Shower', 'Walk', 'test']
-first_day = get_day()
-temporary_list = [first_day, 0, 0, 0, 0]
 
 
 def handle_shower():
